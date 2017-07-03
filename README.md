@@ -1,6 +1,10 @@
 # Sightengine
 
-TODO: Write summary
+Unofficial wrapper for the [Sightengine](https://sightengine.com/) API
+which provides image moderation including nudity detection, scammer detection,
+face attributes, and more.
+
+Official API docs can be found here: https://sightengine.com/docs/reference
 
 ## Installation
 
@@ -20,7 +24,49 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Configuration
+
+```ruby
+require 'sightengine'
+
+client = Sightengine::Client.new(
+  api_user: 'your api user',
+  api_secret: 'your api secret'
+)
+
+```
+
+### Nudity check
+
+```ruby
+response = client.nudity("https://sightengine.com/assets/img/examples/example2.jpg")
+
+response.raw_nudity? # false
+response.partial_nudity? # false
+response.safe? # true
+```
+
+### Face attributes
+
+```ruby
+response = client.face_attributes("https://sightengine.com/assets/img/examples/example7.jpg")
+
+response.faces.length # 1
+face = response.faces.first
+
+face.female? # true
+face.male? # true
+face.minor? # false
+face.coordinates # [x1, y1, x2, y2] = [0.5156, 0.1936, 0.6922, 0.6207]
+```
+
+### Scam detection
+
+```ruby
+response = client.scam("https://d3m9459r9kwism.cloudfront.net/img/examples/example-scam1-1000.jpg")
+
+response.scam? # true
+```
 
 ## Development
 
