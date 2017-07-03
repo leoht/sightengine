@@ -1,10 +1,18 @@
 require "sightengine/api/response"
+require "sightengine/api/base"
 require "sightengine/api/nudity"
+require "sightengine/api/wad"
+require "sightengine/api/face_attributes"
+require "sightengine/api/scam"
 
 module Sightengine
   class Client
     include Sightengine::Connection
+    include Sightengine::Api::Base
     include Sightengine::Api::Nudity
+    include Sightengine::Api::Wad
+    include Sightengine::Api::FaceAttributes
+    include Sightengine::Api::Scam
 
     BASE_URI = 'https://api.sightengine.com'.freeze
 

@@ -18,14 +18,7 @@ module Sightengine
       end
 
       def nudity(image_url)
-        response_hash = connection.get build_uri('nudity.json') do |req|
-          req.headers[:content_type] = 'application/json'
-          req.params = default_params.merge({ url: image_url })
-        end.body
-
-        p response_hash
-
-        Response.new(response_hash)
+        Response.new(do_check(image_url, ["nudity"]))
       end
     end
   end
