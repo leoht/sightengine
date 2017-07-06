@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Léonard Hetsch"]
   spec.email         = ["leo.hetsch@gmail.com"]
 
-  spec.summary       = %q{}
-  spec.description   = %q{}
-  spec.homepage      = ""
+  spec.summary       = %q{Ruby wrapper for the Sightengine image moderation API}
+  spec.description   = %q{Unofficial wrapper for the Sightengine API which provides image moderation including nudity detection, scammer detection, face attributes, and more.}
+  spec.homepage      = "https://github.com/leoht/sightengine"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
