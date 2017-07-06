@@ -4,6 +4,7 @@ require "sightengine/api/nudity"
 require "sightengine/api/wad"
 require "sightengine/api/face_attributes"
 require "sightengine/api/scam"
+require "sightengine/api/celebrity"
 
 module Sightengine
   class Client
@@ -13,6 +14,7 @@ module Sightengine
     include Sightengine::Api::Wad
     include Sightengine::Api::FaceAttributes
     include Sightengine::Api::Scam
+    include Sightengine::Api::Celebrity
 
     BASE_URI = 'https://api.sightengine.com'.freeze
 

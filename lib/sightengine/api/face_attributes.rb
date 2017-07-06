@@ -5,6 +5,7 @@ module Sightengine
         attr_accessor :x1, :y1, :x2, :y2
         attr_accessor :features
         attr_accessor :attributes
+        attr_accessor :celebrity
 
         def initialize(hash)
           hash.each do |k, v|
@@ -33,18 +34,8 @@ module Sightengine
         end
       end
 
-      class Response < ::Sightengine::Api::Response
-        attr_accessor :faces
-        
-        def faces
-          (self.instance_variable_get("@faces") || []).map do |face|
-            Face.new(face)
-          end
-        end
-      end
-
       def face_attributes(image_url)
-        Response.new(do_check(image_url, ["face-attributes"]))
+        Sightengine::Api::Response.new(do_check(image_url, ["face-attributes"]))
       end
     end
   end
