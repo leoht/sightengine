@@ -68,6 +68,30 @@ response = client.scam("https://d3m9459r9kwism.cloudfront.net/img/examples/examp
 response.scam? # true
 ```
 
+### Celebrities detection
+
+```ruby
+response = client.celebrities("https://sightengine.com/assets/img/examples/example-craig-300.jpg")
+
+response.celebrity? # true
+response.celebrities # [{"name"=>"Daniel Craig", "prob"=>0.99}, {"name"=>"Graham Fellows", "prob"=>0.08}, ...]
+```
+
+### Multi-models check
+
+```ruby
+# Detect nudity, scammers and celebrities in picture
+response = client.check("https://d3m9459r9kwism.cloudfront.net/img/examples/example-scam1-1000.jpg", [
+    Sightengine::NUDITY,
+    Sightengine::SCAM,
+    Sightengine::CELEBRITIES
+])
+
+response.raw_nudity? # false
+response.scam? # true
+response.celebrity? # false
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
