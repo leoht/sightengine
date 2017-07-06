@@ -1,5 +1,7 @@
 # Sightengine
 
+![](https://travis-ci.org/leoht/sightengine.svg?branch=master)
+
 Unofficial wrapper for the [Sightengine](https://sightengine.com/) API
 which provides image moderation including nudity detection, scammer detection,
 face attributes, and more.
