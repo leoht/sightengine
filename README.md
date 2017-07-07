@@ -53,8 +53,8 @@ response.safe? # true
 ```ruby
 response = client.face_attributes("https://sightengine.com/assets/img/examples/example7.jpg")
 
-response.faces.length # 1
-face = response.faces.first
+response.get_faces.length # 1
+face = response.get_faces.first
 
 face.female? # true
 face.male? # true
@@ -77,6 +77,16 @@ response = client.celebrities("https://sightengine.com/assets/img/examples/examp
 
 response.celebrity? # true
 response.celebrities # [{"name"=>"Daniel Craig", "prob"=>0.99}, {"name"=>"Graham Fellows", "prob"=>0.08}, ...]
+```
+
+### Weapons, alcohol and drugs (WAD)
+
+```ruby
+response = client.wad("https://sightengine.com/assets/img/examples/example2.jpg")
+
+response.weapon?
+response.drugs?
+response.alcohol?
 ```
 
 ### Multi-models check
