@@ -19,7 +19,9 @@ describe Sightengine::Api::Nudity do
       ]
     })
 
-    expect(@client.face_attributes("female.jpg").female?).to eq true
+    expect(@client.face_attributes("female.jpg").get_faces).to satisfy { |faces|
+      faces.any? { |face| face.female? }
+    }
   end
 
   it 'should detect male face' do
@@ -32,6 +34,8 @@ describe Sightengine::Api::Nudity do
       ]
     })
 
-    expect(@client.face_attributes("male.jpg").male?).to eq true
+    expect(@client.face_attributes("male.jpg").get_faces).to satisfy { |faces|
+      faces.any? { |face| face.male? }
+    }
   end
 end

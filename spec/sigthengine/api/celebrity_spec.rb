@@ -10,7 +10,7 @@ describe Sightengine::Api::Celebrity do
   end
 
   it 'should detect celebrity' do
-    @client.mock('celebrity', 'celebrity.jpg', {
+    @client.mock('celebrities', 'celebrity.jpg', {
       result: 'success',
       faces: [
         {
@@ -19,12 +19,12 @@ describe Sightengine::Api::Celebrity do
       ]
     })
 
-    expect(@client.celebrity("celebrity.jpg").celebrity?).to eq true
-    expect(@client.celebrity("celebrity.jpg").celebrities.length).to eq 1
+    expect(@client.celebrities("celebrity.jpg").celebrity?).to eq true
+    expect(@client.celebrities("celebrity.jpg").celebrities.length).to eq 1
   end
 
   it 'should not detect celebrity' do
-    @client.mock('celebrity', 'someone.jpg', {
+    @client.mock('celebrities', 'someone.jpg', {
       result: 'success',
       faces: [
         {
@@ -33,6 +33,6 @@ describe Sightengine::Api::Celebrity do
       ]
     })
 
-    expect(@client.celebrity("someone.jpg").celebrity?).to eq false
+    expect(@client.celebrities("someone.jpg").celebrity?).to eq false
   end
 end

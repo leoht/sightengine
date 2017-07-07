@@ -8,7 +8,7 @@ module Sightengine
           end
         end
 
-        def faces
+        def get_faces
           (self.instance_variable_get("@faces") || []).map do |face|
             Sightengine::Api::FaceAttributes::Face.new(face)
           end
