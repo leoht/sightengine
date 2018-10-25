@@ -3,6 +3,7 @@ require "sightengine/api/responses/wad"
 require "sightengine/api/responses/scam"
 require "sightengine/api/responses/face_attributes"
 require "sightengine/api/responses/celebrity"
+require "sightengine/api/responses/offensive"
 
 module Sightengine
   module Api
@@ -12,6 +13,7 @@ module Sightengine
       include Sightengine::Api::Responses::Scam
       include Sightengine::Api::Responses::FaceAttributes
       include Sightengine::Api::Responses::Celebrity
+      include Sightengine::Api::Responses::Offensive
 
       attr_accessor :status, :request, :media, :error
 

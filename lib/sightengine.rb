@@ -9,4 +9,5 @@ module Sightengine
   CELEBRITIES = "celebrities"
   FACE_ATTRIBUTES = "face-attributes"
   FACE = "face"
+  OFFENSIVE = "offensive"
 end

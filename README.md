@@ -38,6 +38,13 @@ client = Sightengine::Client.new(
 
 ```
 
+### Offensive check
+
+```ruby
+response = client.offensive("https://sightengine.com/assets/img/examples/example2.jpg")
+response.offensive? # false
+```
+
 ### Nudity check
 
 ```ruby
