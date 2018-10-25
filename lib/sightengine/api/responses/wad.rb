@@ -8,6 +8,14 @@ module Sightengine
           end
         end
 
+        def wad
+          {
+            "weapon" => weapon,
+            "drugs" => drugs,
+            "alcohol" => alcohol,
+          }
+        end
+
         def weapon?(min_prob = 0.8)
           weapon.to_f > min_prob
         end
