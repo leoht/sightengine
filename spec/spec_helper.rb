@@ -15,7 +15,10 @@ class MockClient < Sightengine::Client
         api_secret: api_secret,
         models: model
       }).
-      to_return(body: expected.to_json)
+      to_return(
+        headers: { 'Content-Type' => 'application/json; charset=utf-8' },
+        body: expected.to_json
+      )
   end
 end
 

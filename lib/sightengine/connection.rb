@@ -1,5 +1,4 @@
 require 'faraday'
-require 'faraday_middleware'
 
 module Sightengine
   module Connection
@@ -8,8 +7,8 @@ module Sightengine
         headers: {'Content-Type' => 'application/json'}
       }) do |conn|
         conn.use Faraday::Request::UrlEncoded
-        conn.use FaradayMiddleware::ParseJson
         conn.adapter(Faraday.default_adapter)
+        conn.response :json
       end
     end
   end
